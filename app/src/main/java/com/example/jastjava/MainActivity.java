@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,12 +15,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void submitOrder(View view){
-        display(1);
+    public void submitOrder(View view) {
+        quantity++;
+        display(quantity);
     }
 
-    private void display(int number){
-        TextView quantityTextView=(TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText(""+number);
+    private void display(int number) {
+        TextView quantityTextView = findViewById(R.id.quantity_text_view);
+        quantityTextView.setText("" + number);
     }
 }
