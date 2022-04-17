@@ -17,10 +17,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    public void quantityIncrement(View view){
+        quantity=quantity+1;
+        display(quantity);
+    }
+
+    public void quantityDecrement(View view){
+        if (quantity>1) {
+            quantity=quantity-1;
+        }
+        display(quantity);
+    }
 
     public void submitOrder(View view) {
-        quantity++;
-        display(quantity);
         displayPrice(quantity*30);
     }
 
