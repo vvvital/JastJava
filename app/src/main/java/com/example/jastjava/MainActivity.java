@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     int quantity = 0;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void displayPrice(int price){
         TextView priceTextView = findViewById(R.id.price_value);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(price));
+        Locale localeUA = new Locale("uk", "UA");
+        priceTextView.setText(NumberFormat.getCurrencyInstance(localeUA).format(price));
     }
 }
