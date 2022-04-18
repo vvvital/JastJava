@@ -13,7 +13,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     int quantity = 1;
-    int price=30;
+    int price = 30;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,24 +23,26 @@ public class MainActivity extends AppCompatActivity {
         displayPrice(price);
     }
 
-    public void quantityIncrement(View view){
-        quantity=quantity+1;
+    public void quantityIncrement(View view) {
+        quantity = quantity + 1;
         display(quantity);
-        displayPrice(quantity*price);
+        displayPrice(quantity * price);
     }
 
-    public void quantityDecrement(View view){
-        if (quantity>1) {
-            quantity=quantity-1;
+    public void quantityDecrement(View view) {
+        if (quantity > 1) {
+            quantity = quantity - 1;
         }
         display(quantity);
-        displayPrice(quantity*price);
+        displayPrice(quantity * price);
     }
 
     public void submitOrder(View view) {
         setContentView(R.layout.your_order);
-        TextView textView=findViewById(R.id.textView8);
+        TextView textView = findViewById(R.id.textView8);
         textView.setText(Integer.toString(quantity));
+        TextView textOrderPrice = findViewById(R.id.order_price_view);
+        textOrderPrice.setText("To Pay " + Integer.toString(quantity * price) + " uah");
 
     }
 
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
-    private void displayPrice(int price){
+    private void displayPrice(int price) {
         TextView priceTextView = findViewById(R.id.price_value);
         Locale localeUA = new Locale("uk", "UA");
         priceTextView.setText(NumberFormat.getCurrencyInstance(localeUA).format(price));
