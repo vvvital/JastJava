@@ -33,7 +33,7 @@
         android:layout_below="@id/quantity"
         android:layout_toRightOf="@id/button_increment"
         android:layout_margin="16dp"
-        android:text="1" />
+        android:text="" />
 
     <Button
         android:id="@+id/button_decrement"
@@ -61,7 +61,7 @@
         android:layout_below="@id/price"
         android:layout_alignParentLeft="true"
         android:padding="8dp"
-        android:text="30" />
+        android:text="" />
 
     <Button
         android:id="@+id/order"
