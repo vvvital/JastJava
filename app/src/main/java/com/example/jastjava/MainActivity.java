@@ -3,6 +3,7 @@ package com.example.jastjava;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String EXTRA_MESSAGE = "com.example.jastJava.MESSAGE";
     int quantity = 1;
     int price = 30;
 
@@ -38,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view) {
-        setContentView(R.layout.your_order);
-        TextView textView = findViewById(R.id.textView8);
-        textView.setText(Integer.toString(quantity));
-        TextView textOrderPrice = findViewById(R.id.order_price_view);
-        textOrderPrice.setText("To Pay " + Integer.toString(quantity * price) + " uah");
+        Intent intent = new Intent(this, OrderActivity.class);
+        intent.putExtra("quantity", quantity);
+        intent.putExtra("price", price);
+        startActivity(intent);
+        finish();
 
     }
 
@@ -55,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
         TextView priceTextView = findViewById(R.id.price_value);
         Locale localeUA = new Locale("uk", "UA");
         priceTextView.setText(NumberFormat.getCurrencyInstance(localeUA).format(price));
+    }
+
+    public void destroyMain() {
+        finish();
     }
 
 }
